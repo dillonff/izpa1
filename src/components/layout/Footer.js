@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center pt-6 border-t border-white/10">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/izpa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -64,7 +64,7 @@ const Footer = () => {
                 <FaLinkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.xiaohongshu.com/izpa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -73,7 +73,7 @@ const Footer = () => {
                 <SiXiaohongshu className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://twitter.com/izpa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -82,7 +82,7 @@ const Footer = () => {
                 <FaTwitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://instagram.com/izpa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"

@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { images, videos } from '../assets/media';
-import { HiLightBulb } from 'react-icons/hi';
-import { BsBuilding, BsPeople } from 'react-icons/bs';
+import { HiOutlineLightBulb } from 'react-icons/hi';
+import { BsBuildings, BsPeople } from 'react-icons/bs';
 import { IoMdPeople } from 'react-icons/io';
-import { MdArchitecture, MdDesignServices } from 'react-icons/md';
-import { FaChartLine, FaRegFileAlt, FaPaintBrush } from 'react-icons/fa';
+import { MdOutlineArchitecture } from 'react-icons/md';
+import {
+  HiOutlineChartBar,
+  HiOutlineDocumentText,
+  HiOutlineUserGroup,
+} from 'react-icons/hi';
+import { RiPaintLine, RiBuildingLine } from 'react-icons/ri';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -26,13 +31,13 @@ const Home = () => {
 
   const values = [
     {
-      icon: HiLightBulb,
+      icon: HiOutlineLightBulb,
       title: 'Integrated Approach to Development',
       description:
         'Blends strategic planning with innovative design to deliver solutions',
     },
     {
-      icon: BsBuilding,
+      icon: BsBuildings,
       title: 'Making an Impact',
       description:
         'Directly address the most pressing issues in the built environment today',
@@ -47,27 +52,27 @@ const Home = () => {
 
   const services = [
     {
-      icon: FaChartLine,
+      icon: HiOutlineChartBar,
       title: 'Planning Consulting',
     },
     {
-      icon: BsBuilding,
+      icon: RiBuildingLine,
       title: 'Land Development Planning Advisory',
     },
     {
-      icon: FaRegFileAlt,
+      icon: HiOutlineDocumentText,
       title: 'Statement of Environmental Effects (SEE)',
     },
     {
-      icon: FaPaintBrush,
+      icon: RiPaintLine,
       title: 'Interior Design',
     },
     {
-      icon: MdArchitecture,
+      icon: MdOutlineArchitecture,
       title: 'Architecture Design',
     },
     {
-      icon: BsPeople,
+      icon: HiOutlineUserGroup,
       title: 'Government Liaison',
     },
   ];
@@ -88,6 +93,7 @@ const Home = () => {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'grayscale(100%)' }}
         >
           <source src={videos.heroVideo} type="video/mp4" />
         </video>
@@ -146,9 +152,7 @@ const Home = () => {
                 transition={{ delay: index * 0.2, duration: 0.6 }}
               >
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-white border border-gray-100 shadow-sm rounded-lg flex items-center justify-center mb-2">
-                    <value.icon className="w-8 h-8 text-red-500" />
-                  </div>
+                  <value.icon className="w-12 h-12 text-red-500 mb-4" />
                   <div className="w-12 h-0.5 bg-red-500 mx-auto" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">{value.title}</h3>
@@ -192,12 +196,8 @@ const Home = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300">
+                  <service.icon className="w-12 h-12 text-white mb-6 group-hover:text-red-500 transition-colors duration-300" />
+                  <h3 className="text-lg font-bold text-white group-hover:text-red-500 transition-colors duration-300">
                     {service.title}
                   </h3>
                 </div>

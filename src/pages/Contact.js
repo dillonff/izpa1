@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion';
 import { images } from '../assets/media';
 import { useState, useEffect } from 'react';
-import {
-  HiOutlinePhone,
-  HiOutlineEnvelope,
-  HiOutlineMapPin,
-} from 'react-icons/hi2';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const Contact = () => {
@@ -32,7 +27,6 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -44,29 +38,24 @@ const Contact = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    // Validate First Name
     if (!formData.firstName.trim()) {
       newErrors.firstName = 'First name is required';
     }
 
-    // Validate Last Name
     if (!formData.lastName.trim()) {
       newErrors.lastName = 'Last name is required';
     }
 
-    // Validate Email
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    // Validate Phone
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
     }
 
-    // Validate Message
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     }
@@ -85,9 +74,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send the form data to your server
       console.log('Form submitted:', formData);
-      // Reset form after successful submission
       setFormData({
         firstName: '',
         lastName: '',
@@ -105,9 +92,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Contact Form Section */}
-      <section className="relative min-h-screen bg-black text-white">
+    <div className="relative bg-black">
+      {/* Background Image Container */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={images.materials.marble}
@@ -119,8 +106,11 @@ const Contact = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/70"></div>
         </div>
+      </div>
 
-        <div className="relative z-20 container mx-auto px-4 pt-32 pb-32">
+      {/* Content Container */}
+      <div className="relative z-10">
+        <div className="container mx-auto px-4 py-32">
           <div className="max-w-3xl mx-auto">
             <motion.div
               className="space-y-12"
@@ -131,7 +121,7 @@ const Contact = () => {
             >
               <div className="text-center">
                 <motion.h1
-                  className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg"
+                  className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg text-white"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -139,12 +129,12 @@ const Contact = () => {
                   Get in Touch
                 </motion.h1>
                 <motion.p
-                  className="text-lg md:text-xl max-w-3xl mx-auto font-light drop-shadow-lg"
+                  className="text-lg md:text-xl max-w-3xl mx-auto font-light drop-shadow-lg text-white"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                  Lets discuss your project together.
+                  Let's discuss your project together.
                 </motion.p>
               </div>
 
@@ -283,23 +273,7 @@ const Contact = () => {
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="relative h-[60vh] bg-black">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=YOUR_EMBED_URL"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Location Map"
-          className="grayscale"
-        ></iframe>
-      </section>
+      </div>
     </div>
   );
 };
