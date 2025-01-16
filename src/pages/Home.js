@@ -6,34 +6,23 @@ import { BsBuilding, BsPeople } from 'react-icons/bs';
 import { IoMdPeople } from 'react-icons/io';
 import { MdArchitecture, MdDesignServices } from 'react-icons/md';
 import { FaChartLine, FaRegFileAlt, FaPaintBrush } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
+  const [marbleLoaded, setMarbleLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = images.materials.marble;
+    img.onload = () => setMarbleLoaded(true);
+  }, []);
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
     transition: { duration: 0.6 },
   };
-
-  const projects = [
-    {
-      id: 1,
-      title: 'Rural Area Subdivision',
-      image: images.ruralImg,
-      description: 'Sustainable rural development project',
-    },
-    {
-      id: 2,
-      title: 'Master Planned Estate',
-      image: images.estateImg,
-      description: 'Modern community planning',
-    },
-    {
-      id: 3,
-      title: 'Commercial Complex',
-      image: images.commercialImg,
-      description: 'Modern mixed-use development',
-    },
-  ];
 
   const values = [
     {
@@ -138,14 +127,11 @@ const Home = () => {
       </motion.section>
 
       {/* Values Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 overflow-hidden bg-white">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            {...fadeIn}
           >
             Our Core Values
           </motion.h2>
@@ -176,14 +162,22 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-100">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 overflow-hidden bg-black text-white">
+        <div className="absolute inset-0">
+          <img
+            src={images.materials.marble}
+            alt="Marble Texture"
+            className={`w-full h-full object-cover ${
+              marbleLoaded ? 'opacity-30' : 'opacity-0'
+            } transition-opacity duration-700`}
+            style={{ filter: 'contrast(120%) brightness(90%)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
+            {...fadeIn}
           >
             Our Services
           </motion.h2>
@@ -191,17 +185,19 @@ const Home = () => {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                className="bg-white rounded-lg p-8 text-center"
+                className="bg-black/30 backdrop-blur-md rounded-xl p-8 text-center hover:bg-black/40 transition-all duration-300 group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-white border border-gray-100 shadow-sm rounded-lg flex items-center justify-center mb-4">
-                    <service.icon className="w-8 h-8 text-red-500" />
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                      <service.icon className="w-8 h-8 text-white" />
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">
+                  <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300">
                     {service.title}
                   </h3>
                 </div>
