@@ -21,33 +21,62 @@ const Services = () => {
 
   const planningServices = [
     {
-      title: 'LDPA',
+      title: 'Preliminary Town Planning Consulting',
       description:
-        'Local Development Planning Assessment for sustainable urban growth',
+        'Expert guidance and consultation on town planning matters at the early stages of development',
     },
     {
-      title: 'SEE',
-      description: 'Strategic Environmental Effects assessment and reporting',
+      title: 'Land Development Planning Advisory',
+      description:
+        'Strategic advice on land development opportunities and constraints assessment',
     },
     {
-      title: 'DA Management',
+      title: 'Statement of Environmental Effects (SEE)',
       description:
-        'Development Application project management and coordination',
+        'Comprehensive environmental impact assessment and documentation for development applications',
+    },
+    {
+      title: 'Lodgement of Development Applications',
+      description:
+        'Professional preparation and submission of development applications to relevant authorities',
+    },
+    {
+      title: 'Preparation of Planning Proposals',
+      description:
+        'Detailed planning proposals for rezoning and land use changes',
+    },
+    {
+      title: 'Project Management',
+      description:
+        'End-to-end project coordination and management of planning processes',
     },
   ];
 
   const architectureServices = [
     {
-      title: 'Luxury Residences',
-      description: 'Custom design for high-end single-family homes',
+      title: 'Luxurious Detached Houses',
+      description:
+        'Bespoke architectural designs for premium single-family homes, combining elegance with functionality',
     },
     {
-      title: 'Multi-Unit Development',
-      description: 'Innovative solutions for townhouse and apartment complexes',
+      title: 'High-End Townhouses',
+      description:
+        'Sophisticated multi-dwelling designs that maximize space while maintaining privacy and luxury',
     },
     {
-      title: 'Commercial Design',
-      description: 'Modern and functional spaces for businesses',
+      title: 'Duplex Designs',
+      description:
+        'Innovative dual-occupancy solutions that blend seamlessly into their surroundings',
+    },
+    {
+      title: 'Mid-Rise Apartments',
+      description:
+        'Contemporary apartment complexes that create vibrant living communities',
+    },
+    {
+      title: 'Granny Flats',
+      description:
+        'Thoughtfully designed secondary dwellings that provide comfortable and independent living spaces',
     },
   ];
 
@@ -114,7 +143,7 @@ const Services = () => {
             >
               <span className="text-red-500">01.</span> Planning Services
             </motion.h2>
-            <div className="space-y-16">
+            <div className="grid md:grid-cols-2 gap-16">
               {planningServices.map((service, index) => (
                 <motion.div
                   key={service.title}
@@ -192,19 +221,23 @@ const Services = () => {
               {interiorServices.map((service, index) => (
                 <motion.div
                   key={service.title}
-                  className="group relative bg-black/30 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:border-red-500/30 transition-colors"
+                  className="flex flex-col md:flex-row items-start gap-8"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                 >
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {service.description}
-                  </p>
+                  <div className="md:w-1/3">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {service.title}
+                    </h3>
+                    <div className="w-12 h-1 bg-red-500"></div>
+                  </div>
+                  <div className="md:w-2/3">
+                    <p className="text-gray-300 leading-relaxed text-lg">
+                      {service.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
