@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c513bc58.css",
+    "main.js": "/static/js/main.88e826e4.js",
+    "static/media/background.mp4": "/static/media/background.f322fe10c866f3dc27b6.mp4",
+    "static/media/opralhouse.jpg": "/static/media/opralhouse.e012b07aea8641059c2c.jpg",
+    "static/media/stones.jpg": "/static/media/stones.ef2cb1b981c7459511fd.jpg",
+    "static/media/walls.jpg": "/static/media/walls.8694d6f48e66dcda586f.jpg",
+    "static/media/curve.jpg": "/static/media/curve.9b1c3714ea3e6f39badd.jpg",
+    "static/media/marble.jpg": "/static/media/marble.9bf9bc1e9deb3e86311a.jpg",
+    "static/media/metal.jpg": "/static/media/metal.492fd7a7cb6bbe6127f5.jpg",
+    "static/media/paper.jpg": "/static/media/paper.ca127a3de80b57bb074d.jpg",
+    "static/media/logo-with-name.png": "/static/media/logo-with-name.66c1ebb71940f379b217.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.c513bc58.css",
+    "static/js/main.88e826e4.js"
+  ]
+}
