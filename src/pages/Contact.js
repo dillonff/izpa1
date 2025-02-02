@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { images } from '../assets/media';
 import { useState, useEffect } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -14,11 +14,23 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+      console.log('EmailJS initialized with public key');
+    } else {
+      console.error('EmailJS public key is missing');
+    }
+  }, []);
 
   useEffect(() => {
-    const marbleImg = new Image();
-    marbleImg.src = images.materials.marble;
-    marbleImg.onload = () => setImageLoaded(true);
+    const img = new Image();
+    img.src = images.materials.opralhouse;
+    img.onload = () => setImageLoaded(true);
   }, []);
 
   const handleChange = (e) => {
@@ -72,9 +84,30 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
 
     try {
-      console.log('Form submitted:', formData);
+      const templateParams = {
+        to_email: 'info@izpa.com.au',
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      };
+
+      console.log('Sending email with params:', templateParams);
+      console.log('Public Key:', process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+      console.log('Service ID:', process.env.REACT_APP_EMAILJS_SERVICE_ID);
+      console.log('Template ID:', process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
+
+      const response = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', response);
+
       setFormData({
         firstName: '',
         lastName: '',
@@ -82,10 +115,16 @@ const Contact = () => {
         phone: '',
         message: '',
       });
-      alert('Message sent successfully!');
+      setSubmitStatus({
+        type: 'success',
+        message: 'Message sent successfully! We will contact you soon.',
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Failed to send message. Please try again.');
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -97,12 +136,12 @@ const Contact = () => {
       <div className="absolute top-0 left-0 right-0 bottom-0 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={images.materials.marble}
-            alt="Marble Texture"
+            src={images.materials.opralhouse}
+            alt="Opera House"
             className={`w-full h-full object-cover scale-110 ${
               imageLoaded ? 'opacity-40' : 'opacity-0'
             } transition-opacity duration-700`}
-            style={{ filter: 'contrast(110%) brightness(85%)' }}
+            style={{ filter: 'contrast(110%) brightness(85%) grayscale(100%)' }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/70"></div>
         </div>
@@ -110,7 +149,7 @@ const Contact = () => {
 
       {/* Content Container */}
       <div className="relative z-10">
-        <div className="container mx-auto px-4 py-32">
+        <div className="container mx-auto px-4 pt-32 pb-60">
           <div className="max-w-3xl mx-auto">
             <motion.div
               className="space-y-12"
@@ -254,9 +293,17 @@ const Contact = () => {
                   )}
                 </div>
 
-                <div className="pt-4">
-                  <ReCAPTCHA sitekey="your-recaptcha-site-key" theme="dark" />
-                </div>
+                {submitStatus.message && (
+                  <div
+                    className={`p-4 rounded ${
+                      submitStatus.type === 'success'
+                        ? 'bg-green-500/10 text-green-400'
+                        : 'bg-red-500/10 text-red-400'
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
 
                 <button
                   type="submit"

@@ -101,7 +101,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <motion.div className="max-w-4xl mx-auto space-y-8" {...fadeIn}>
             <p className="text-lg text-gray-700 leading-relaxed">
-              IZ Planning and Architecture PTY LTD (IZPA) is an innovative firm
+              IZ Planning and Architecture Pty Ltd (IZPA) is an innovative firm
               based in Sydney, Australia, specialising in the seamless
               integration of expert town planning and architectural design to
               deliver tailored solutions that meet all regulatory requirements
@@ -112,10 +112,9 @@ const About = () => {
               architecture, and interior design, ensuring every project is not
               only functional but also creative, sustainable, and in line with
               community needs. At IZ Planning and Architecture, we believe in
-              delivering tailored solutions that meet all regulatory
-              requirements while achieving outstanding design outcomes that
-              include urban planning, architecture and interior design, ensuring
-              each project reflects both functionality, locality and creativity.
+              delivering solutions that include urban planning, architecture and
+              interior design, ensuring each project reflects both
+              functionality, locality and creativity.
             </p>
           </motion.div>
         </div>

@@ -29,51 +29,6 @@ const Team = () => {
     transition: { duration: 0.6 },
   };
 
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'John Smith',
-      role: 'Principal Architect',
-      image: images.placeholders.member1Img,
-      bio: 'Over 15 years of experience in sustainable architecture and urban planning.',
-    },
-    {
-      id: 2,
-      name: 'Sarah Johnson',
-      role: 'Senior Urban Planner',
-      image: images.placeholders.member2Img,
-      bio: 'Specializes in master-planned communities and sustainable development.',
-    },
-    {
-      id: 3,
-      name: 'Michael Chen',
-      role: 'Design Director',
-      image: images.placeholders.member3Img,
-      bio: 'Award-winning designer with expertise in modern architectural solutions.',
-    },
-    {
-      id: 4,
-      name: 'Emily Parker',
-      role: 'Interior Design Lead',
-      image: images.placeholders.member1Img,
-      bio: 'Passionate about creating harmonious spaces that blend functionality with aesthetic beauty.',
-    },
-    {
-      id: 5,
-      name: 'David Wilson',
-      role: 'Development Manager',
-      image: images.placeholders.member2Img,
-      bio: 'Expert in project management and sustainable development practices with 10+ years experience.',
-    },
-    {
-      id: 6,
-      name: 'Lisa Zhang',
-      role: 'Urban Design Specialist',
-      image: images.placeholders.member3Img,
-      bio: 'Focuses on creating vibrant, sustainable urban spaces that enhance community living.',
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -115,41 +70,6 @@ const Team = () => {
           </motion.p>
         </div>
       </motion.section>
-
-      {/* Team Grid */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <motion.div
-                key={member.name}
-                className="bg-white shadow-lg rounded-xl overflow-hidden group hover:shadow-xl transition-shadow duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-red-500 font-medium mb-4">{member.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Our Strengths Section */}
       <section className="relative py-32 overflow-hidden">
@@ -278,7 +198,7 @@ const Team = () => {
             >
               We're always looking to expand our team and collaborate with new
               partners. If you're driven by growth and innovation, we would be
-              thrilled to cconnect with you.
+              thrilled to connect with you.
             </motion.p>
             <motion.div {...fadeIn}>
               <Link

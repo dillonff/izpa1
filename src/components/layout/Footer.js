@@ -27,7 +27,7 @@ const Footer = () => {
               <HiOutlineEnvelope className="w-4 h-4 flex-shrink-0" />
               <a
                 href="mailto:info@izpa.com.au"
-                className="hover:text-white transition-colors text-sm"
+                className="hover:text-white transition-colors text-sm tracking-wide"
               >
                 info@izpa.com.au
               </a>
@@ -35,7 +35,7 @@ const Footer = () => {
 
             <div className="flex items-center space-x-2">
               <HiOutlineMapPin className="w-4 h-4 flex-shrink-0" />
-              <p className="text-sm">
+              <p className="text-sm tracking-wide">
                 Suite 203, 2-4 Holden St, Ashfiled 2037, NSW
               </p>
             </div>
@@ -44,7 +44,7 @@ const Footer = () => {
               <HiOutlinePhone className="w-4 h-4 flex-shrink-0" />
               <a
                 href="tel:+61458598225"
-                className="hover:text-white transition-colors text-sm"
+                className="hover:text-white transition-colors text-sm tracking-wide"
               >
                 +61 458 598 225
               </a>
@@ -55,16 +55,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center pt-6 border-t border-white/10">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <a
-                href="https://www.linkedin.com/company/izpa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.xiaohongshu.com/izpa"
+                href="https://www.xiaohongshu.com/user/profile/629d4439000000001b024a85"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -72,17 +63,19 @@ const Footer = () => {
               >
                 <SiXiaohongshu className="w-5 h-5" />
               </a>
+
               <a
-                href="https://twitter.com/izpa"
+                href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Twitter"
+                aria-label="LinkedIn"
               >
-                <FaTwitter className="w-5 h-5" />
+                <FaLinkedin className="w-5 h-5" />
               </a>
+
               <a
-                href="https://instagram.com/izpa"
+                href="https://www.instagram.com/iz_planning_architecture"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -92,7 +85,7 @@ const Footer = () => {
               </a>
             </div>
 
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-400 tracking-wide font-light">
               &copy; {new Date().getFullYear()} IZ Planning and Architecture.
               All rights reserved.
             </p>
