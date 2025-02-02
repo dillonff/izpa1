@@ -3,7 +3,7 @@ import {
   HiOutlineEnvelope,
   HiOutlineMapPin,
 } from 'react-icons/hi2';
-import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiXiaohongshu } from 'react-icons/si';
 import { images } from '../../assets/media';
 
@@ -65,7 +65,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/company/iz-planning-and-architecture/about/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
