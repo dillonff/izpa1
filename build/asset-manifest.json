@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c513bc58.css",
-    "main.js": "/static/js/main.88e826e4.js",
+    "main.css": "/static/css/main.ef3ac26b.css",
+    "main.js": "/static/js/main.2234c6aa.js",
     "static/media/background.mp4": "/static/media/background.f322fe10c866f3dc27b6.mp4",
     "static/media/opralhouse.jpg": "/static/media/opralhouse.e012b07aea8641059c2c.jpg",
     "static/media/stones.jpg": "/static/media/stones.ef2cb1b981c7459511fd.jpg",
@@ -14,7 +14,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.c513bc58.css",
-    "static/js/main.88e826e4.js"
+    "static/css/main.ef3ac26b.css",
+    "static/js/main.2234c6aa.js"
   ]
 }
