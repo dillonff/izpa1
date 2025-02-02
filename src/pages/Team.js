@@ -33,7 +33,7 @@ const Team = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <motion.section
-        className="relative h-[50vh] bg-black text-white overflow-hidden flex items-center"
+        className="relative h-[50vh] bg-black text-white overflow-hidden flex items-center mt-24 md:mt-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >

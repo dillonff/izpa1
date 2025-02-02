@@ -24,13 +24,13 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full z-50 px-6 pt-6">
-      <nav className="mx-auto max-w-7xl bg-white rounded-full px-8">
-        <div className="flex justify-between items-center h-20">
+      <nav className="mx-auto max-w-7xl bg-white rounded-full px-6 md:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20">
           <Link to="/" className="flex items-center">
             <img
               src={images.logoWithName}
               alt="IZ Planning"
-              className="h-12 w-auto object-contain"
+              className="h-10 md:h-12 w-auto object-contain"
             />
           </Link>
 
@@ -65,12 +65,12 @@ const Navbar = () => {
 
           {/* Mobile Navigation Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-50 transition-colors"
+            className="md:hidden p-2 hover:bg-gray-50 transition-colors rounded-lg"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
-            <span className="sr-only">Open menu</span>
             <svg
-              className="h-5 w-5"
+              className="h-5 w-5 text-gray-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -90,17 +90,17 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 rounded-b-2xl mt-2"
+            className="absolute left-0 right-0 top-full md:hidden bg-white rounded-3xl mt-4 border border-gray-100 shadow-lg"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-4 py-4 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-3 py-2 rounded-lg transition-colors text-[15px] ${
+                  className={`block px-4 py-3 rounded-xl transition-colors text-[15px] ${
                     isCurrentPath(item.path)
                       ? 'bg-gray-50 text-black font-medium'
-                      : 'text-gray-600 hover:text-black hover:font-medium'
+                      : 'text-gray-600 hover:text-black hover:bg-gray-50'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >

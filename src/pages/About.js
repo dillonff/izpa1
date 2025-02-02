@@ -53,7 +53,7 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <motion.section
-        className="relative h-[50vh] bg-black text-white overflow-hidden flex items-center"
+        className="relative h-[50vh] bg-black text-white overflow-hidden flex items-center mt-24 md:mt-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -90,8 +90,10 @@ const About = () => {
             {...fadeIn}
             transition={{ delay: 0.2 }}
           >
-            Seamlessly integrating expert town planning and architectural design
-            to address modern community challenges.
+            Seamlessly integrating expert{' '}
+            <span className="font-semibold">town planning</span>, and{' '}
+            <span className="font-semibold">architectural design</span>, and to
+            address modern community challenges.
           </motion.p>
         </div>
       </motion.section>
@@ -101,20 +103,26 @@ const About = () => {
         <div className="container mx-auto px-4">
           <motion.div className="max-w-4xl mx-auto space-y-8" {...fadeIn}>
             <p className="text-lg text-gray-700 leading-relaxed">
-              IZ Planning and Architecture Pty Ltd (IZPA) is an innovative firm
-              based in Sydney, Australia, specialising in the seamless
-              integration of expert town planning and architectural design to
-              deliver tailored solutions that meet all regulatory requirements
-              while achieving outstanding design outcomes.
+              <span className="font-semibold">
+                IZ Planning and Architecture Pty Ltd (IZPA)
+              </span>
+              , and is an innovative firm based in{' '}
+              <span className="font-semibold">Sydney</span>, Australia,
+              specialising in the seamless integration of expert town planning
+              and architectural design to deliver tailored solutions that meet
+              all regulatory requirements while achieving outstanding design
+              outcomes.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              We offer a comprehensive approach that combines urban planning,
-              architecture, and interior design, ensuring every project is not
-              only functional but also creative, sustainable, and in line with
-              community needs. At IZ Planning and Architecture, we believe in
-              delivering solutions that include urban planning, architecture and
-              interior design, ensuring each project reflects both
-              functionality, locality and creativity.
+              We offer a comprehensive approach that combines{' '}
+              <span className="font-semibold">urban planning</span>,{' '}
+              <span className="font-semibold">architecture</span>, and{' '}
+              <span className="font-semibold">interior design</span>, ensuring
+              every project is not only functional but also creative,
+              sustainable, and in line with community needs. At IZ Planning and
+              Architecture, we believe in delivering solutions that include
+              urban planning, architecture and interior design, ensuring each
+              project reflects both functionality, locality and creativity.
             </p>
           </motion.div>
         </div>
