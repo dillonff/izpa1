@@ -35,15 +35,17 @@ const Footer = () => {
 
             <div className="flex items-center space-x-2">
               <HiOutlineMapPin className="w-4 h-4 flex-shrink-0" />
-              <p className="text-sm tracking-wide"></p>
+              <p className="text-sm tracking-wide">Sydney, Australia</p>
             </div>
 
             <div className="flex items-center space-x-2">
               <HiOutlinePhone className="w-4 h-4 flex-shrink-0" />
               <a
-                href="tel:"
+                href="tel:0408888888"
                 className="hover:text-white transition-colors text-sm tracking-wide"
-              ></a>
+              >
+                8888888888
+              </a>
             </div>
           </div>
 
