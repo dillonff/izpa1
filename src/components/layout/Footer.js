@@ -35,9 +35,7 @@ const Footer = () => {
 
             <div className="flex items-center space-x-2">
               <HiOutlineMapPin className="w-4 h-4 flex-shrink-0" />
-              <p className="text-sm tracking-wide">
-                Suite 203, 2-4 Holden St, Ashfiled 2037, NSW
-              </p>
+              <p className="text-sm tracking-wide"></p>
             </div>
 
             <div className="flex items-center space-x-2">
